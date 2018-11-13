@@ -9,10 +9,11 @@ class TestSum(unittest.TestCase):
 
     def test_sum_float(self):
         with self.assertRaises(TypeError):
-            sum_solution.compute((1.0, 2), 3)
+            sum_solution.compute(1.0, 2)
 
     def test_param_out_of_scope(self):
-        self.assertRaises(ValueError)
+        with self.assertRaises(ValueError):
+            sum_solution.compute(101, 2)
 
 
 if __name__ == '__main__':
