@@ -8,8 +8,8 @@ class TestSum(unittest.TestCase):
         self.assertEqual(sum_solution.compute(1, 2), 3)
 
     """Should add exception testing later, let's get the code running"""
-    # def test_sum_float(self):
-    #     self.assertRaises(Exception)
+    def test_sum_float(self):
+        self.assertRaises(TypeError)
 
 
 if __name__ == '__main__':
