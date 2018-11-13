@@ -19,6 +19,10 @@ class TestSum(unittest.TestCase):
         with self.assertRaises(ValueError):
             sum_solution.compute(-1, 2)
 
+    def test_param_zero(self):
+        with self.assertRaises(ValueError):
+            sum_solution.compute(1, 0)
+
 
 if __name__ == '__main__':
     unittest.main()
