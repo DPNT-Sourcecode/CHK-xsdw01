@@ -8,7 +8,8 @@ class TestSum(unittest.TestCase):
         self.assertEqual(sum_solution.compute(1, 2), 3)
 
     def test_sum_float(self):
-        self.assertRaises(TypeError)
+        with self.assertRaises(TypeError):
+            sum_solution.compute((1.0, 2), 3)
 
     def test_param_out_of_scope(self):
         self.assertRaises(ValueError)
