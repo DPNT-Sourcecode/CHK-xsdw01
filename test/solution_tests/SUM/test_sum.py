@@ -20,8 +20,8 @@ class TestSum(unittest.TestCase):
             sum_solution.compute(-1, 2)
 
     def test_param_zero(self):
-        with self.assertRaises(ValueError):
-            sum_solution.compute(1, 0)
+        #  Read the description incorrectly - zero is allowed
+        self.assertEqual(sum_solution.compute(5, 0), 5)
 
 
 if __name__ == '__main__':
