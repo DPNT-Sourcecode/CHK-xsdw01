@@ -7,7 +7,7 @@ from solutions.HLO import hello_solution
 class TestSum(unittest.TestCase):
     def test_hello(self):
         self.assertEqual(hello_solution.hello("Any string"),
-                         "Hello World!")
+                         "Hello, World!")
 
 
 if __name__ == '__main__':
