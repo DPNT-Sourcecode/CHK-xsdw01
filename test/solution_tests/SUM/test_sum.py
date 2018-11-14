@@ -20,7 +20,7 @@ class TestSum(unittest.TestCase):
             sum_solution.compute(-1, 2)
 
     def test_param_zero(self):
-        #  Read the description incorrectly - zero is allowed
+        """ Read the description incorrectly - zero is allowed """
         self.assertEqual(sum_solution.compute(5, 0), 5)
 
 
