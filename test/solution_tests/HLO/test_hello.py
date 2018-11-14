@@ -13,6 +13,10 @@ class TestSum(unittest.TestCase):
         self.assertEqual(hello_solution.hello("John"),
                          "Hello, John!")
 
+    def test_hello_lower_case(self):
+        self.assertEqual(hello_solution.hello("john"),
+                         "Hello, john!")
+
 
 if __name__ == '__main__':
     unittest.main()
