@@ -98,18 +98,18 @@ def checkout(skus):
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
     def _compute_cost_deals(deals):
-        cost =
+        deal_prices = {'3A': 130, '5A': 200,
+                       '2E': 80,
+                       '2F': 20}
         return cost
 
     def _compute_cost_remaining(rem):
-        cost = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10,
-                'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
-                'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50,
-                'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
-                'Y': 10, 'Z': 50}
-
-                rem['C']*
-        return cost
+        prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10,
+                  'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
+                  'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50,
+                  'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
+                  'Y': 10, 'Z': 50}
+        return sum(prices[k]*rem[k] for k in prices)
 
     # cost = (deals['A'] * 130 + deals['B'] * 45 +
     #         deals['AAAAA'] * 200 + deals['F'] * 20 +
