@@ -12,10 +12,9 @@ def checkout(skus):
             of the items
     """
 
-
     def _check_for_deals(basket):
-        a_deals = int(round(basket['A'] / 3))
-        b_deals = int(round(basket['B'] / 2))
+        a_deals = basket['A'] / 3
+        b_deals = basket['B'] / 2
         deals = {'A': a_deals,
                  'B': b_deals}  # Might be useful to have this separate
         return deals
@@ -35,9 +34,12 @@ def checkout(skus):
             return -1
 
     deals = _check_for_deals(basket)
+
+    """ This sum could be shortened, but I will leave it long for now
+        to see what is going on """
     cost = (deals['A'] * 130 + deals['B'] * 45 +
-            (basket['A'] - 3) * 50 +
-            (basket['B'] - 2) * 30 +
+            (basket['A'] - 3 * deals['A']) * 50 +
+            (basket['B'] - 2 * deals['B']) * 30 +
             basket['C'] * 20 +
             basket['D'] * 15)
     return cost
