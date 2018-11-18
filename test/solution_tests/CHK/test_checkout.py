@@ -147,6 +147,9 @@ class TestCheckoutRoundFive(unittest.TestCase):
     def test_checkout_stx(self):
         self.assertEqual(C.checkout('STX'), 45)
 
+    def test_checkout_stxyz(self):
+        self.assertEqual(C.checkout('STXYZ'), 82)
+
 
 if __name__ == '__main__':
     unittest.main()

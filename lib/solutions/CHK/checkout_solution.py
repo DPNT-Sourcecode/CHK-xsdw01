@@ -55,6 +55,7 @@ def checkout(skus):
                 items_to_remove -= items_removed
                 item -= items_removed
             sorted_items[i] = item
+        print sorted_items
         return num_deals, sorted_items
 
     # def _bogof_same(items, threshold):
@@ -91,10 +92,10 @@ def checkout(skus):
         deals['4U'], rem['U'] = _multibuy(rem['U'], 4)
         deals['2V'], deals['3V'], rem['V'] = \
             _double_multibuy(rem['V'], 2, 3)
-        deals['STXYZ'], [rem['S'], rem['T'], rem['X'],
-                         rem['Y'], rem['Z']] = \
-            _buy_3_of_any([rem['S'], rem['T'], rem['X'],
-                           rem['Y'], rem['Z']], 3)
+        deals['STXYZ'], [rem['Z'], rem['S'], rem['T'],
+                         rem['Y'], rem['X']] = \
+            _buy_3_of_any([rem['Z'], rem['S'], rem['T'],
+                           rem['Y'], rem['X']], 3)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -190,5 +191,4 @@ def checkout(skus):
 
     total_cost = (_compute_cost_deals(deals) +
                   _compute_cost_remaining(remaining_basket))
-    print deals, remaining_basket
     return total_cost
