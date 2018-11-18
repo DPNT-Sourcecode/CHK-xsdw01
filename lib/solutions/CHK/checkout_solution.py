@@ -33,6 +33,17 @@ def checkout(skus):
         remaining_discounted_items = discounted_items - num_deals
         return (num_deals, remaining_items, remaining_discounted_items)
 
+    def _buy_3_of_any([items, prices], threshold):
+        """Trying to compute final deal where it is buy and 3 of multiple
+            items. Need to ensure that we choose to remove the most
+            expensive items firstself.
+
+            If I had known the full challenge from the start, I would
+            have built a class for sku, and included price,
+            number of units and possibly a compute method for deals"""
+        num_deals = sum(items) / threshold
+        prices = 
+
     # def _bogof_same(items, threshold):
     #     if items >= threshold + 1:
     #         num_deals = items / (threshold + 1)

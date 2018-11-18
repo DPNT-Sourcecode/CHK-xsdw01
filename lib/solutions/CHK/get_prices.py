@@ -1,4 +1,4 @@
-def get_price_list:
+def get_price_list():
     filepath = ('/Users/MichaelHook/challenge/tdl-runner-python/' +
                 'lib/solutions/CHK/price_list.txt')
     fh = open(filepath)
