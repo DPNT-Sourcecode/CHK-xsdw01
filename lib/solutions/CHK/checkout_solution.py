@@ -12,6 +12,14 @@ def checkout(skus):
             of the items
     """
 
+
+    def _check_for_deals(basket):
+        a_deals = int(round(basket['a'] / 3))
+        b_deals = int(round(basket['b'] / 2))
+        deals = {'a': a_deals,
+                 'b': b_deals}  # Might be useful to have this separate
+        return deals
+
     if not isinstance(skus, basestring):
         return -1
 
@@ -25,3 +33,5 @@ def checkout(skus):
             basket[sku] += 1
         else:
             return -1
+
+    deals = _check_for_deals(basket)
