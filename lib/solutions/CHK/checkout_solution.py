@@ -40,15 +40,15 @@ def checkout(skus):
     #     return rem_basket
 
     def _check_for_deals(basket):
-        remaining_basket = basket.copy()
+        rem = basket.copy()
         deals = dict()
 
-        deals['5A'], deals['3A'], remaining_basket['A'] = \
-            _double_multibuy(remaining_basket['A'], 3, 5)
-        print deals, remaining_basket
+        deals['5A'], deals['3A'], rem['A'] = \
+            _double_multibuy(rem['A'], 3, 5)
+        print deals, rem
 
-        deals['2B'] = _multibuy(remaining_basket['B'])
-        print deals['B']
+        deals['2B'], rem = _multibuy(rem['B'])
+        print deals, rem
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
