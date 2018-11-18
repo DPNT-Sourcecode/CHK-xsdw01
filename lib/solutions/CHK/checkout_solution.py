@@ -40,7 +40,10 @@ def checkout(skus):
 
         deals['5A'], deals['3A'] = _double_multibuy(remaining_basket['A'],
                                                     3, 5)
-        print deals['A']
+        remaining_basket['A'] -= 3*deals['3A']
+        remaining_basket['A'] -= 5*deals['5A']
+        deals['2B'] = _multibuy(remaining_basket['B'])
+        print deals['B']
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
