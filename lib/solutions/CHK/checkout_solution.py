@@ -21,7 +21,7 @@ def checkout(skus):
         remaining = items - discount_high * num_deals_high
         num_deals_low = remaining / discount_low
         remaining = remaining - discount_low * num_deals_low
-        return (num_deals_high, num_deals_low, remaining)
+        return (num_deals_low, num_deals_high, remaining)
 
     def _bogof(items, discounted_items, threshold):
         num_deals = 0
@@ -50,7 +50,7 @@ def checkout(skus):
         rem = basket.copy()
         deals = dict()
 
-        deals['5A'], deals['3A'], rem['A'] = \
+        deals['3A'], deals['5A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
         # 2E deal must go first
         deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
