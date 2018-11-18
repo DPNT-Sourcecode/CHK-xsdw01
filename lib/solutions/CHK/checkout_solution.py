@@ -194,7 +194,8 @@ def checkout(skus):
     #         basket['E'] * 40 +
     #         (basket['F'] - 3 * deals['F']) * 10)
 
-    total_cost = (_compute_cost_deals(deals) +
-                  _compute_cost_remaining(remaining_basket))
+    cost_of_deals = _compute_cost_deals(deals)
+    cost_of_remainder = _compute_cost_remaining(remaining_basket)
+    total_cost = cost_of_deals + cost_of_remainder
     print deals, remaining_basket
     return total_cost
