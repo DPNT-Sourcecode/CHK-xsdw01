@@ -27,6 +27,13 @@ def checkout(skus):
                 num_deals = discounted_items
         return num_deals
 
+    def _check_off_items_in_deal(rem_basket, item_key, num_items):
+        rem_basket[item_key] = rem_basket[item_key] - num_items
+        if rem_basket[item_key] < 0:
+            print "Have removed more items from deals than existed"
+            raise ValueError
+        return rem_basket
+
     def _check_for_deals(basket):
         remaining_basket = basket.copy()
         a_deals = 0
