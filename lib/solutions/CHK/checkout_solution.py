@@ -115,12 +115,24 @@ def checkout(skus):
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
     def _compute_cost_deals(deals):
+        # deal_prices = {'3A': 130, '5A': 200,
+        #                '2B': 45,
+        #                '2E': 80,
+        #                '3F': 20,
+        #                '5H': 45, '10H': 80,
+        #                '2K': 150,
+        #                '3N': 120,
+        #                '5P': 200,
+        #                '3Q': 80,
+        #                '3R': 150,
+        #                '4U': 120,
+        #                '2V': 90, '3V': 130}
         deal_prices = {'3A': 130, '5A': 200,
                        '2B': 45,
                        '2E': 80,
                        '3F': 20,
                        '5H': 45, '10H': 80,
-                       '2K': 150,
+                       '2K': 120,
                        '3N': 120,
                        '5P': 200,
                        '3Q': 80,
