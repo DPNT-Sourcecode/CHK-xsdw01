@@ -22,16 +22,19 @@ class TestSum(unittest.TestCase):
         self.assertEqual(C.checkout('DD'), 30)
 
     def test_checkout_illegal_int(self):
-        with self.assertRaises(TypeError):
-            C.checkout(12)
+        self.assertEqual(C.checkout(12), -1)
+        # with self.assertRaises(TypeError):
+        #     C.checkout(12)
 
     def test_checkout_illegal_float(self):
-        with self.assertRaises(TypeError):
-            C.checkout(1.0)
+        self.assertEqual(C.checkout(1.0), -1)
+        # with self.assertRaises(TypeError):
+        #     C.checkout(1.0)
 
     def test_checkout_illegal_item(self):
-        with self.assertRaises(ValueError):
-            C.checkout('Z')
+        self.assertEqual(C.checkout('Z'), -1)
+        # with self.assertRaises(ValueError):
+        #     C.checkout('Z')
 
 
 if __name__ == '__main__':
