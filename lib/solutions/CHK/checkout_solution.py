@@ -23,10 +23,10 @@ def checkout(skus):
     if not isinstance(skus, basestring):
         return -1
 
-    basket = {'a': 0,
-              'b': 0,
-              'c': 0,
-              'd': 0}
+    basket = {'A': 0,
+              'B': 0,
+              'C': 0,
+              'D': 0}  # Currently case sensitive...
 
     for sku in skus:
         if sku in basket:
