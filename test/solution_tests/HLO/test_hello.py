@@ -4,7 +4,7 @@ import unittest
 from solutions.HLO import hello_solution
 
 
-class TestSum(unittest.TestCase):
+class TestHello(unittest.TestCase):
     def test_hello_world(self):
         self.assertEqual(hello_solution.hello("World"),
                          "Hello, World!")

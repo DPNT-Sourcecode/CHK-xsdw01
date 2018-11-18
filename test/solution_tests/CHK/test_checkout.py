@@ -3,7 +3,7 @@ import unittest
 from solutions.CHK import checkout_solution as C
 
 
-class TestSum(unittest.TestCase):
+class TestCheckoutOne(unittest.TestCase):
     def test_checkout_abc(self):
         self.assertEqual(C.checkout('ABC'), 100)
 
