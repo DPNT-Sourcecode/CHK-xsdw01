@@ -3,7 +3,7 @@ import unittest
 from solutions.CHK import checkout_solution as C
 
 
-class TestCheckoutOne(unittest.TestCase):
+class TestCheckoutRoundOne(unittest.TestCase):
     def test_checkout_abc(self):
         self.assertEqual(C.checkout('ABC'), 100)
 
