@@ -150,6 +150,17 @@ class TestCheckoutRoundFive(unittest.TestCase):
     def test_checkout_stxyz(self):
         self.assertEqual(C.checkout('STXYZ'), 82)
 
+    def test_checkout_sssz(self):
+        self.assertEqual(C.checkout('SSSZ'), 65)
+
+    def test_checkout_alphabet(self):
+        alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        self.assertEqual(C.checkout(alpha), 1602)
+
+    def test_checkout_alpha_two(self):
+        alpha = 'LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH'
+        self.assertEqual(C.checkout(alpha), 1602)
+
 
 if __name__ == '__main__':
     unittest.main()

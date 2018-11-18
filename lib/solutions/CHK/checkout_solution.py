@@ -46,6 +46,7 @@ def checkout(skus):
             Will have to hardcode..."""
         num_deals = sum(sorted_items) / threshold
         items_to_remove = num_deals * threshold
+        print sorted_items
         for i, item in enumerate(sorted_items):
             if items_to_remove > 0:
                 if items_to_remove > item:
@@ -55,7 +56,7 @@ def checkout(skus):
                 items_to_remove -= items_removed
                 item -= items_removed
             sorted_items[i] = item
-        # print sorted_items, num_deals
+        print sorted_items, num_deals
         return num_deals, sorted_items
 
     # def _bogof_same(items, threshold):
