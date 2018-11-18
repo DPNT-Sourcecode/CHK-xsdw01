@@ -14,10 +14,10 @@ def checkout(skus):
 
 
     def _check_for_deals(basket):
-        a_deals = int(round(basket['a'] / 3))
-        b_deals = int(round(basket['b'] / 2))
-        deals = {'a': a_deals,
-                 'b': b_deals}  # Might be useful to have this separate
+        a_deals = int(round(basket['A'] / 3))
+        b_deals = int(round(basket['B'] / 2))
+        deals = {'A': a_deals,
+                 'B': b_deals}  # Might be useful to have this separate
         return deals
 
     if not isinstance(skus, basestring):
@@ -35,9 +35,9 @@ def checkout(skus):
             return -1
 
     deals = _check_for_deals(basket)
-    cost = (deals['a'] * 130 + deals['b'] * 45 +
-            (basket['a'] - 3) * 50 +
-            (basket['b'] - 2) * 30 +
-            basket['c'] * 20 +
-            basket['d'] * 15)
+    cost = (deals['A'] * 130 + deals['B'] * 45 +
+            (basket['A'] - 3) * 50 +
+            (basket['B'] - 2) * 30 +
+            basket['C'] * 20 +
+            basket['D'] * 15)
     return cost
