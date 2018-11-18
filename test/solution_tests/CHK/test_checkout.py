@@ -118,6 +118,21 @@ class TestCheckoutRoundFour(unittest.TestCase):
     def test_checkout_5p(self):
         self.assertEqual(C.checkout('PPPPP'), 200)
 
+    def test_checkout_3q(self):
+        self.assertEqual(C.checkout('QQQ'), 80)
+
+    def test_checkout_3r1q(self):
+        self.assertEqual(C.checkout('RRRQ'), 150)
+
+    def test_checkout_4u(self):
+        self.assertEqual(C.checkout('UUUU'), 120)
+
+    def test_checkout_2v(self):
+        self.assertEqual(C.checkout('VV'), 90)
+
+    def test_checkout_3v(self):
+        self.assertEqual(C.checkout('VVV'), 130)
+
 
 if __name__ == '__main__':
     unittest.main()
