@@ -75,10 +75,12 @@ def checkout(skus):
         rem = basket.copy()
         deals = dict()
 
+        print rem
         deals['STXYZ'], [rem['Z'], rem['S'], rem['T'],
                          rem['Y'], rem['X']] = \
             _buy_3_of_any([rem['Z'], rem['S'], rem['T'],
                            rem['Y'], rem['X']], 3)
+        print rem
         deals['3A'], deals['5A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
         # 2E deal must go first
@@ -96,6 +98,9 @@ def checkout(skus):
         deals['4U'], rem['U'] = _multibuy(rem['U'], 4)
         deals['2V'], deals['3V'], rem['V'] = \
             _double_multibuy(rem['V'], 2, 3)
+        print "\n\n"
+        print deals
+        print "\n\n"
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
