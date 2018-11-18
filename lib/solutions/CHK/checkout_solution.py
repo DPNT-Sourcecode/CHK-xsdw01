@@ -176,7 +176,6 @@ def checkout(skus):
         #           'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
         #           'Y': 10, 'Z': 50}
         prices = P.get_price_list()
-        print prices
         return sum(prices[k]*rem[k] for k in prices)
 
     # cost = (deals['A'] * 130 + deals['B'] * 45 +
@@ -190,4 +189,5 @@ def checkout(skus):
 
     total_cost = (_compute_cost_deals(deals) +
                   _compute_cost_remaining(remaining_basket))
+    print deals, remaining_basket
     return total_cost

@@ -110,7 +110,7 @@ class TestCheckoutRoundFour(unittest.TestCase):
         self.assertEqual(C.checkout('HHHHHHHHHHHHHHH'), 125)
 
     def test_checkout_2k(self):
-        self.assertEqual(C.checkout('KK'), 150)
+        self.assertEqual(C.checkout('KK'), 120)  # changed in R5
 
     def test_checkout_3n1m(self):
         self.assertEqual(C.checkout('NNNM'), 120)
@@ -141,6 +141,11 @@ class TestCheckoutRoundFour(unittest.TestCase):
             'QQ'=60, 'QRRR'=150 -> 210
             Second deal should be prioritised """
         self.assertEqual(C.checkout('QQQRRR'), 210)
+
+
+class TestCheckoutRoundFive(unittest.TestCase):
+    def test_checkout_stx(self):
+        self.assertEqual(C.checkout('STX'), 45)
 
 
 if __name__ == '__main__':
