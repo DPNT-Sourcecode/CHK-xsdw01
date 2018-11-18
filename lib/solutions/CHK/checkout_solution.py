@@ -97,6 +97,14 @@ def checkout(skus):
 
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
+    def _compute_cost_deals(deals):
+        cost =
+        return cost
+
+    def _compute_cost_remaining(rem):
+        cost =
+        return cost
+
     cost = (deals['A'] * 130 + deals['B'] * 45 +
             deals['AAAAA'] * 200 + deals['F'] * 20 +
             (basket['A'] - 3 * deals['A'] - 5 * deals['AAAAA']) * 50 +
@@ -105,4 +113,7 @@ def checkout(skus):
             basket['D'] * 15 +
             basket['E'] * 40 +
             (basket['F'] - 3 * deals['F']) * 10)
-    return cost
+
+    total_cost = (_compute_cost_deals(deals) +
+                  _compute_cost_remaining(remaining_basket))
+    return total_cost
