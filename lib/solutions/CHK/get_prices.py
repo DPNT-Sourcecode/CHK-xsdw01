@@ -8,7 +8,7 @@ def get_price_list():
         if line.startswith('|'):
             if not line.split()[1].startswith('Item'):
                 key = line.split()[1]
-                value = line.split()[3]
+                value = int(line.split()[3])
                 price_list[key] = value
 
     return price_list
