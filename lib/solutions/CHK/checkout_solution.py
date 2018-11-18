@@ -52,12 +52,21 @@ def checkout(skus):
 
         deals['5A'], deals['3A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
+        # 2E deal must go first
         deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
         deals['3F'], rem["F"] = _multibuy(rem['F'], 2+1)
         deals['5H'], deals['10H'], rem['H'] = \
             _double_multibuy(rem['H'], 5, 10)
         deals['2K'], rem['K'] = _multibuy(rem['K'], 2)
+        deals['3N'], rem['N'], rem['M'] = _bogof(rem['N'], rem['M'], 3)
+        deals['5P'], rem['P'] = _multibuy(rem['P'], 5)
+        # 3R deal must go first
+        deals['3R'], rem['R'], rem['Q'] = _bogof(rem['R'], rem['Q'], 3)
+        deals['3Q'], rem['Q'] = _multibuy(rem['Q'], 3)
+        deals['4U'], rem['U'] = _multibuy(rem['U'], 4)
+        deals['2V'], deals['3V'], rem['V'] = \
+            _double_multibuy(rem['V'], 2, 3)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
