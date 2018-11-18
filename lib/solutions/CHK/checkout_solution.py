@@ -23,7 +23,7 @@ def checkout(skus):
         remaining = remaining - discount_low * num_deals_low
         return (num_deals_high, num_deals_low, remaining)
 
-    def _bogof_diff(items, discounted_items, threshold):
+    def _bogof(items, discounted_items, threshold):
         if items >= threshold and discounted_items >= 1:
             num_deals = items / threshold
             if num_deals > discounted_items:
@@ -52,9 +52,10 @@ def checkout(skus):
         deals['5A'], deals['3A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
         print deals, rem
-        deals['2E'], rem['E'], rem['B'] = _bogof_diff(rem['E'], rem['B'], 2)
+        deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
-        deals['2F'], rem["F"] = _multibuy(rem['F'], 2+1)
+        deals['3F'], rem["F"] = _multibuy(rem['F'], 2+1)
+
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -105,8 +106,15 @@ def checkout(skus):
     def _compute_cost_deals(deals):
         deal_prices = {'3A': 130, '5A': 200,
                        '2E': 80,
-                       '2F': 20,
-                       ''}
+                       '3F': 20,
+                       '5H': 45, '10H': 80,
+                       '2K': 150,
+                       '3N': 120,
+                       '5P': 200,
+                       '3Q': 80,
+                       '3R': 150,
+                       '4U': 120,
+                       '2V': 90, '3V': 130}
         return cost
 
     def _compute_cost_remaining(rem):
