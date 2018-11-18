@@ -13,7 +13,7 @@ def checkout(skus):
     """
 
     def _multibuy(item, discount):
-        return = items / discount
+        return (items / discount)
 
     def _double_multibuy(item, discount_low, discount_high):
         num_deals_high = item / discount_high
@@ -38,22 +38,24 @@ def checkout(skus):
         remaining_basket = basket.copy()
         deals = dict()
 
-        
+        deals['5A'], deals['3A'] = _double_multibuy(remaining_basket['A'],
+                                                    3, 5)
+        print deals['A']
 
-        if basket['A'] < 5:
-            a_deals = basket['A'] / 3
-        else:
-            multi_a_deals = basket['A'] / 5
-            a_deals = (basket['A'] - 5 * multi_a_deals) / 3
-
-        if basket['E'] >= 2 and basket["B"] >= 1:
-            e_deals = basket['E'] / 2
-            if e_deals > basket['B']:
-                e_deals = basket['B']
-
-        b_deals = (basket['B'] - e_deals) / 2
-
-        f_deals = basket['F'] / 3  # Equivalent to 2 + 1
+        # if basket['A'] < 5:
+        #     a_deals = basket['A'] / 3
+        # else:
+        #     multi_a_deals = basket['A'] / 5
+        #     a_deals = (basket['A'] - 5 * multi_a_deals) / 3
+        #
+        # if basket['E'] >= 2 and basket["B"] >= 1:
+        #     e_deals = basket['E'] / 2
+        #     if e_deals > basket['B']:
+        #         e_deals = basket['B']
+        #
+        # b_deals = (basket['B'] - e_deals) / 2
+        #
+        # f_deals = basket['F'] / 3  # Equivalent to 2 + 1
         deals = {'A': a_deals,
                  'B': b_deals,
                  'E': e_deals,
