@@ -80,5 +80,16 @@ class TestCheckoutRoundTwo(unittest.TestCase):
         self.assertEqual(C.checkout('AAAAAAA'), 300)
 
 
+class TestCheckoutRoundThree(unittest.TestCase):
+    def test_checkout_f(self):
+        self.assertEqual(C.checkout('F'), 10)
+
+    def test_checkout_f_not_enough(self):
+        self.assertEqual(C.checkout('FF'), 20)
+
+    def test_checkout_f_deal(self):
+        self.assertEqual(C.checkout('FFF'), 20)
+
+
 if __name__ == '__main__':
     unittest.main()
