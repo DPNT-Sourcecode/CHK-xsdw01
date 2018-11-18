@@ -16,10 +16,12 @@ def checkout(skus):
         a_deals = basket['A'] / 3
         e_deals = 0
         print basket
-        if basket['E'] > 2 and basket["B"] > 1:
+        if basket['E'] >= 2 and basket["B"] >= 1:
             e_deals = basket['E'] / 2
+            print e_deals
             if e_deals > basket['B']:
                 e_deals = basket['B']
+                print e_deals
         b_deals = (basket['B'] / 2) - e_deals
         deals = {'A': a_deals,
                  'B': b_deals,
