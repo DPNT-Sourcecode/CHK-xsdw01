@@ -13,12 +13,16 @@ def checkout(skus):
     """
 
     def _check_for_deals(basket):
+        a_deals = 0
+        b_deals = 0
+        e_deals = 0
+        multi_a_deals = 0
+
         if basket['A'] < 5:
             a_deals = basket['A'] / 3
         else:
             multi_a_deals = basket['A'] / 5
             a_deals = (basket['A'] - 5 * multi_a_deals) / 3
-        e_deals = 0
         if basket['E'] >= 2 and basket["B"] >= 1:
             e_deals = basket['E'] / 2
             if e_deals > basket['B']:
@@ -27,7 +31,7 @@ def checkout(skus):
         deals = {'A': a_deals,
                  'B': b_deals,
                  'E': e_deals,
-                 'AAAAA': multi_a_deals}  # Might be useful to have this separate
+                 'AAAAA': multi_a_deals}
         return deals
 
     if not isinstance(skus, basestring):

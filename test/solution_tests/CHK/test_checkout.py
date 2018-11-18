@@ -73,6 +73,12 @@ class TestCheckoutRoundTwo(unittest.TestCase):
     def test_checkout_aaaaa_deal(self):
         self.assertEqual(C.checkout('AAAAA'), 200)
 
+    def test_checkout_six_a_deals(self):
+        self.assertEqual(C.checkout('AAAAAA'), 250)
+
+    def test_checkout_six_a_deals(self):
+        self.assertEqual(C.checkout('AAAAAAA'), 300)
+
 
 if __name__ == '__main__':
     unittest.main()
