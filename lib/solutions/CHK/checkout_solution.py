@@ -12,8 +12,9 @@ def checkout(skus):
             of the items
     """
 
-    def _multibuy(item, discount):
-        return (items / discount)
+    def _multibuy(items, discount):
+        num_deals = items /discount
+        return (num_deals, items - (num_deals * discount))
 
     def _double_multibuy(item, discount_low, discount_high):
         num_deals_high = item / discount_high
@@ -38,10 +39,12 @@ def checkout(skus):
         remaining_basket = basket.copy()
         deals = dict()
 
-        deals['5A'], deals['3A'] = _double_multibuy(remaining_basket['A'],
-                                                    3, 5)
+        deals['5A'], deals['3A'],
+        remaining_basket = _double_multibuy(remaining_basket['A'], 3, 5)
+
         remaining_basket['A'] -= 3*deals['3A']
         remaining_basket['A'] -= 5*deals['5A']
+
         deals['2B'] = _multibuy(remaining_basket['B'])
         print deals['B']
 
