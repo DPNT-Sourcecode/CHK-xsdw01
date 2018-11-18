@@ -16,11 +16,19 @@ def checkout(skus):
         return = items / discount
 
     def _double_multibuy(item, discount_low, discount_high):
-        deals_high = item / discount_high
-        deals_low = (item - discount_high*deals_high) / discount_low
-        return (discount_high, discount_low)
+        num_deals_high = item / discount_high
+        num_deals_low = (item - discount_high*num_deals_high) / discount_low
+        return (num_deals_high, num_deals_low)
+
+    def _bogof(items, discounted_items, threshold):
+        if items >= threshold and discounted_items >= 1:
+            num_deals = items / threshold
+            if num_deals > discounted_items:
+                num_deals = discounted_items
+        return num_deals
 
     def _check_for_deals(basket):
+        remaining_basket = basket.copy()
         a_deals = 0
         b_deals = 0
         e_deals = 0
