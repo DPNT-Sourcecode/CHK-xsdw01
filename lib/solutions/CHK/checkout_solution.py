@@ -35,3 +35,9 @@ def checkout(skus):
             return -1
 
     deals = _check_for_deals(basket)
+    cost = (deals['a'] * 130 + deals['b'] * 45 +
+            (basket['a'] - 3) * 50 +
+            (basket['b'] - 2) * 30 +
+            basket['c'] * 20 +
+            basket['d'] * 15)
+    return cost
