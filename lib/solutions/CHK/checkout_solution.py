@@ -75,12 +75,10 @@ def checkout(skus):
         rem = basket.copy()
         deals = dict()
 
-        print rem
         deals['STXYZ'], [rem['Z'], rem['S'], rem['T'],
                          rem['Y'], rem['X']] = \
             _buy_3_of_any([rem['Z'], rem['S'], rem['T'],
                            rem['Y'], rem['X']], 3)
-        print rem
         deals['3A'], deals['5A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
         # 2E deal must go first
@@ -98,9 +96,9 @@ def checkout(skus):
         deals['4U'], rem['U'] = _multibuy(rem['U'], 4)
         deals['2V'], deals['3V'], rem['V'] = \
             _double_multibuy(rem['V'], 2, 3)
-        print "\n\n"
-        print deals
-        print "\n\n"
+        # print "\n\n"
+        # print deals
+        # print "\n\n"
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -185,17 +183,10 @@ def checkout(skus):
         prices = P.get_price_list()
         return sum(prices[k]*rem[k] for k in prices)
 
-    # cost = (deals['A'] * 130 + deals['B'] * 45 +
-    #         deals['AAAAA'] * 200 + deals['F'] * 20 +
-    #         (basket['A'] - 3 * deals['A'] - 5 * deals['AAAAA']) * 50 +
-    #         (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
-    #         basket['C'] * 20 +
-    #         basket['D'] * 15 +
-    #         basket['E'] * 40 +
-    #         (basket['F'] - 3 * deals['F']) * 10)
-
     cost_of_deals = _compute_cost_deals(deals)
     cost_of_remainder = _compute_cost_remaining(remaining_basket)
     total_cost = cost_of_deals + cost_of_remainder
-    print deals, remaining_basket
+    # print deals, remaining_basket
+    # print "\n\n"
+    # print cost_of_deals, cost_of_remainder
     return total_cost
