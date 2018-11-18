@@ -32,11 +32,11 @@ def checkout(skus):
         remaining_discounted_items = discounted_items - num_deals
         return (num_deals, remaining_items, remaining_discounted_items)
 
-    def _bogof_same(items, threshold):
-        if items >= threshold + 1:
-            num_deals = items / (threshold + 1)
-        remaining_items = items - num_deals * (threshold + 1)
-        return (num_deals, remaining_items)
+    # def _bogof_same(items, threshold):
+    #     if items >= threshold + 1:
+    #         num_deals = items / (threshold + 1)
+    #     remaining_items = items - num_deals * (threshold + 1)
+    #     return (num_deals, remaining_items)
 
     # def _check_off_items_in_deal(rem_basket, item_key, num_items):
     #     rem_basket[item_key] = rem_basket[item_key] - num_items
@@ -52,10 +52,9 @@ def checkout(skus):
         deals['5A'], deals['3A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
         print deals, rem
-
         deals['2E'], rem['E'], rem['B'] = _bogof_diff(rem['E'], rem['B'], 2)
-
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
+        deals['2F'], rem["F"] = _multibuy(rem['F'], 2+1)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -106,7 +105,8 @@ def checkout(skus):
     def _compute_cost_deals(deals):
         deal_prices = {'3A': 130, '5A': 200,
                        '2E': 80,
-                       '2F': 20}
+                       '2F': 20,
+                       ''}
         return cost
 
     def _compute_cost_remaining(rem):
