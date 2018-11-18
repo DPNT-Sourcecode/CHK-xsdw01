@@ -47,8 +47,9 @@ def checkout(skus):
             _double_multibuy(rem['A'], 3, 5)
         print deals, rem
 
-        deals['2B'], rem = _multibuy(rem['B'])
-        print deals, rem
+        deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
+
+        deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -64,12 +65,13 @@ def checkout(skus):
         # b_deals = (basket['B'] - e_deals) / 2
         #
         # f_deals = basket['F'] / 3  # Equivalent to 2 + 1
-        deals = {'A': a_deals,
-                 'B': b_deals,
-                 'E': e_deals,
-                 'F': f_deals,
-                 'AAAAA': multi_a_deals}
-        return deals
+
+        # deals = {'A': a_deals,
+        #          'B': b_deals,
+        #          'E': e_deals,
+        #          'F': f_deals,
+        #          'AAAAA': multi_a_deals}
+        return (deals, rem)
 
     if not isinstance(skus, basestring):
         return -1
@@ -91,7 +93,7 @@ def checkout(skus):
         else:
             return -1
 
-    deals = _check_for_deals(basket)
+    deals, remaining_basket = _check_for_deals(basket)
 
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
