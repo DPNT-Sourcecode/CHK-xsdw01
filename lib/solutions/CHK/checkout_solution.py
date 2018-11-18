@@ -24,14 +24,19 @@ def checkout(skus):
         else:
             multi_a_deals = basket['A'] / 5
             a_deals = (basket['A'] - 5 * multi_a_deals) / 3
+
         if basket['E'] >= 2 and basket["B"] >= 1:
             e_deals = basket['E'] / 2
             if e_deals > basket['B']:
                 e_deals = basket['B']
+
         b_deals = (basket['B'] - e_deals) / 2
+
+        f_deals = basket['F'] / 3  # Equivalent to 2 + 1
         deals = {'A': a_deals,
                  'B': b_deals,
                  'E': e_deals,
+                 'F': f_deals,
                  'AAAAA': multi_a_deals}
         return deals
 
@@ -42,7 +47,8 @@ def checkout(skus):
               'B': 0,
               'C': 0,
               'D': 0,
-              'E': 0}  # Currently case sensitive...
+              'E': 0,
+              'F': 0}  # Currently case sensitive...
 
     for sku in skus:
         if sku in basket:
@@ -54,10 +60,12 @@ def checkout(skus):
 
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
-    cost = (deals['A'] * 130 + deals['B'] * 45 + deals['AAAAA'] * 200 +
+    cost = (deals['A'] * 130 + deals['B'] * 45 +
+            deals['AAAAA'] * 200 + deals['F'] * 20 +
             (basket['A'] - 3 * deals['A'] - 5 * deals['AAAAA']) * 50 +
             (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
             basket['C'] * 20 +
             basket['D'] * 15 +
-            basket['E'] * 40)
+            basket['E'] * 40 +
+            (basket['F'] - 3 * deals['F']) * 10)
     return cost

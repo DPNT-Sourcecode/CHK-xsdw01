@@ -88,7 +88,17 @@ class TestCheckoutRoundThree(unittest.TestCase):
         self.assertEqual(C.checkout('FF'), 20)
 
     def test_checkout_f_deal(self):
+        # Is this not the same as a discount on 3 F's?
         self.assertEqual(C.checkout('FFF'), 20)
+
+    def test_checkout_four_fs(self):
+        self.assertEqual(C.checkout('FFFF'), 30)
+
+    def test_checkout_five_fs(self):
+        self.assertEqual(C.checkout('FFFFF'), 40)
+
+    def test_checkout_six_fs(self):
+        self.assertEqual(C.checkout('FFFFFF'), 40)
 
 
 if __name__ == '__main__':
