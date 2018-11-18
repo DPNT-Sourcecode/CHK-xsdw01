@@ -15,4 +15,10 @@ def checkout(skus):
     if not isinstance(skus, basestring):
         return -1
 
-    
+    basket = {'a': 0,
+              'b': 0,
+              'c': 0,
+              'd': 0}
+
+    for sku in skus:
+        if sku ==
