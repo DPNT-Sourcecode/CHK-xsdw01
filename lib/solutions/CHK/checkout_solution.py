@@ -23,7 +23,7 @@ def checkout(skus):
         remaining = remaining - discount_low * num_deals_low
         return (num_deals_high, num_deals_low, remaining)
 
-    def _bogof(items, discounted_items, threshold):
+    def _bogof_diff(items, discounted_items, threshold):
         if items >= threshold and discounted_items >= 1:
             num_deals = items / threshold
             if num_deals > discounted_items:
@@ -31,6 +31,12 @@ def checkout(skus):
         remaining_items = items - num_deals * threshold
         remaining_discounted_items = discounted_items - num_deals
         return (num_deals, remaining_items, remaining_discounted_items)
+
+    def _bogof_same(items, threshold):
+        if items >= threshold + 1:
+            num_deals = items / (threshold + 1)
+        remaining_items = items - num_deals * (threshold + 1)
+        return (num_deals, remaining_items)
 
     # def _check_off_items_in_deal(rem_basket, item_key, num_items):
     #     rem_basket[item_key] = rem_basket[item_key] - num_items
@@ -47,7 +53,7 @@ def checkout(skus):
             _double_multibuy(rem['A'], 3, 5)
         print deals, rem
 
-        deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
+        deals['2E'], rem['E'], rem['B'] = _bogof_diff(rem['E'], rem['B'], 2)
 
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
 
