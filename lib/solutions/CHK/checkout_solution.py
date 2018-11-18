@@ -24,6 +24,7 @@ def checkout(skus):
         return (num_deals_high, num_deals_low, remaining)
 
     def _bogof(items, discounted_items, threshold):
+        num_deals = 0
         if items >= threshold and discounted_items >= 1:
             num_deals = items / threshold
             if num_deals > discounted_items:
@@ -115,7 +116,7 @@ def checkout(skus):
                        '3R': 150,
                        '4U': 120,
                        '2V': 90, '3V': 130}
-        return cost
+        return sum(deal_prices[k]*deals[k] for k in deals)
 
     def _compute_cost_remaining(rem):
         prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10,
