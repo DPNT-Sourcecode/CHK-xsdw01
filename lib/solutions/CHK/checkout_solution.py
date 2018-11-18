@@ -14,6 +14,7 @@ def checkout(skus):
 
     def _check_for_deals(basket):
         a_deals = basket['A'] / 3
+        e_deals = 0
         if basket['E'] > 2 and basket["B"] > 1:
             e_deals = basket['E'] / 2
             if e_deals > basket['B']:
@@ -43,7 +44,7 @@ def checkout(skus):
 
     """ This sum could be shortened, but I will leave it long for now
         to see what is going on """
-    cost = (deals['A'] * 130 + deals['B'] * 45 + deals['E'] * 80 +
+    cost = (deals['A'] * 130 + deals['B'] * 45 +
             (basket['A'] - 3 * deals['A']) * 50 +
             (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
             basket['C'] * 20 +
