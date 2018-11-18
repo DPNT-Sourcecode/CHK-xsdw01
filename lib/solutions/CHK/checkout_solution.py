@@ -90,6 +90,10 @@ def checkout(skus):
         deals['4U'], rem['U'] = _multibuy(rem['U'], 4)
         deals['2V'], deals['3V'], rem['V'] = \
             _double_multibuy(rem['V'], 2, 3)
+        deals['STXYZ'], [rem['S'], rem['T'], rem['X'],
+                         rem['Y'], rem['Z']] = \
+            _buy_3_of_any([rem['S'], rem['T'], rem['X'],
+                           rem['Y'], rem['Z']], 3)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
