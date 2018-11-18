@@ -15,18 +15,14 @@ def checkout(skus):
     def _check_for_deals(basket):
         a_deals = basket['A'] / 3
         e_deals = 0
-        print basket
         if basket['E'] >= 2 and basket["B"] >= 1:
             e_deals = basket['E'] / 2
-            print e_deals
             if e_deals > basket['B']:
                 e_deals = basket['B']
-                print e_deals
-        b_deals = (basket['B'] / 2) - e_deals
+        b_deals = (basket['B'] - e_deals) / 2
         deals = {'A': a_deals,
                  'B': b_deals,
                  'E': e_deals}  # Might be useful to have this separate
-        print deals
         return deals
 
     if not isinstance(skus, basestring):
@@ -53,5 +49,5 @@ def checkout(skus):
             (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
             basket['C'] * 20 +
             basket['D'] * 15 +
-            basket['E'] * 80)
+            basket['E'] * 40)
     return cost
