@@ -6,4 +6,7 @@ price_list = {}
 for line in fh:
     if line.startswith('|'):
         if not line.split()[1].startswith('Item'):
-            print line.split()[1]
+            key = line.split()[1]
+            value = line.split()[3]
+            price_list[key] = value
+print price_list
