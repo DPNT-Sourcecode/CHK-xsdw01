@@ -67,6 +67,9 @@ class TestCheckoutRoundTwo(unittest.TestCase):
     def test_checkout_both_deals(self):
         self.assertEqual(C.checkout('BBBEE'), 125)
 
+    def test_checkout_multiple_deals(self):
+        self.assertEqual(C.checkout('EEEEBBBBB'), 235)
+
 
 if __name__ == '__main__':
     unittest.main()
