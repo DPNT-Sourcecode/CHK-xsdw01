@@ -33,7 +33,7 @@ def checkout(skus):
         remaining_discounted_items = discounted_items - num_deals
         return (num_deals, remaining_items, remaining_discounted_items)
 
-    def _buy_3_of_any(keys, rem, threshold):
+    def _buy_3_of_any(sorted_items, threshold):
         """Trying to compute final deal where it is buy and 3 of multiple
             items. Need to ensure that we choose to remove the most
             expensive items firstself.
@@ -44,9 +44,17 @@ def checkout(skus):
 
             I know I know how to do this, but can't remember right now
             Will have to hardcode..."""
-        items = [rem[key] for key in keys]
-        prices = P.get_price_list()
-        item_prices = [price[key] for key in keys]
+        num_deals = sum(sorted_items) / threshold
+        items_to_remove = num_deals * threshold
+        for item in sorted_items:
+            if items_to_remove > 0:
+                if items_to_remove > item:
+                    items_removed = item
+                else:
+                    items_removed = item
+                items_to_remove -= items_removed
+                item -= items_removed
+        return num_deals, sorted_items
 
     # def _bogof_same(items, threshold):
     #     if items >= threshold + 1:
