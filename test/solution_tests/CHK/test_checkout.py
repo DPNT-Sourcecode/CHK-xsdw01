@@ -41,5 +41,32 @@ class TestCheckoutRoundOne(unittest.TestCase):
         self.assertEqual(C.checkout('a'), -1)
 
 
+class TestCheckoutRoundTwo(unittest.TestCase):
+    def test_checkout_e(self):
+        self.assertEqual(C.checkout('E'), 40)
+
+    def test_checkout_e_deal(self):
+        self.assertEqual(C.checkout('EEB'), 80)
+
+    def test_checkout_eb_deal(self):
+        """ It is important to note which is more beneficial to the customer
+            is the deal using 'E' preferable to the deal on 'B's alone
+            when there is an option?
+
+            'EEBB' - either deal can apply
+            'E' deal: 'EEB' = 80, 'B' = 30 -> 110
+            'B' deal: 'EE' = 80, 'BB' = 45 -> 125
+
+            Therefore 'E' deal should be favoured """
+        self.assertEqual(C.checkout('EEBB'), 110)
+
+    def test_checkout_be_deal(self):
+        # Ensuring order doesn't matter...
+        self.assertEqual(C.checkout('BBEE'), 110)
+
+    def test_checkout_both_deals(self):
+        self.assertEqual(C.checkout('BBBEE'), 125)
+
+
 if __name__ == '__main__':
     unittest.main()
