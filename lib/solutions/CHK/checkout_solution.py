@@ -52,11 +52,9 @@ def checkout(skus):
 
         deals['5A'], deals['3A'], rem['A'] = \
             _double_multibuy(rem['A'], 3, 5)
-        print deals, rem
         deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
         deals['3F'], rem["F"] = _multibuy(rem['F'], 2+1)
-
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
@@ -106,6 +104,7 @@ def checkout(skus):
         to see what is going on """
     def _compute_cost_deals(deals):
         deal_prices = {'3A': 130, '5A': 200,
+                       '2B': 45,
                        '2E': 80,
                        '3F': 20,
                        '5H': 45, '10H': 80,

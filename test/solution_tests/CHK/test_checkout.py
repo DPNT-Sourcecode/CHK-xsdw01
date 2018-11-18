@@ -31,10 +31,8 @@ class TestCheckoutRoundOne(unittest.TestCase):
         # with self.assertRaises(TypeError):
         #     C.checkout(1.0)
 
-    def test_checkout_illegal_item(self):
-        self.assertEqual(C.checkout('Z'), -1)
-        # with self.assertRaises(ValueError):
-        #     C.checkout('Z')
+    # def test_checkout_illegal_item(self):
+    #     self.assertEqual(C.checkout('Z'), -1)
 
     def test_checkout_lower_case(self):
         """ I am assuming that the method should be case sensitive """
