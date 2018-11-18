@@ -102,17 +102,23 @@ def checkout(skus):
         return cost
 
     def _compute_cost_remaining(rem):
-        cost =
+        cost = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10,
+                'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
+                'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50,
+                'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
+                'Y': 10, 'Z': 50}
+
+                rem['C']*
         return cost
 
-    cost = (deals['A'] * 130 + deals['B'] * 45 +
-            deals['AAAAA'] * 200 + deals['F'] * 20 +
-            (basket['A'] - 3 * deals['A'] - 5 * deals['AAAAA']) * 50 +
-            (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
-            basket['C'] * 20 +
-            basket['D'] * 15 +
-            basket['E'] * 40 +
-            (basket['F'] - 3 * deals['F']) * 10)
+    # cost = (deals['A'] * 130 + deals['B'] * 45 +
+    #         deals['AAAAA'] * 200 + deals['F'] * 20 +
+    #         (basket['A'] - 3 * deals['A'] - 5 * deals['AAAAA']) * 50 +
+    #         (basket['B'] - 2 * deals['B'] - deals['E']) * 30 +
+    #         basket['C'] * 20 +
+    #         basket['D'] * 15 +
+    #         basket['E'] * 40 +
+    #         (basket['F'] - 3 * deals['F']) * 10)
 
     total_cost = (_compute_cost_deals(deals) +
                   _compute_cost_remaining(remaining_basket))
