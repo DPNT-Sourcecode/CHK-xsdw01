@@ -99,5 +99,25 @@ class TestCheckoutRoundThree(unittest.TestCase):
         self.assertEqual(C.checkout('FFFFFF'), 40)
 
 
+class TestCheckoutRoundFour(unittest.TestCase):
+    def test_checkout_5h(self):
+        self.assertEqual(C.checkout('HHHHH'), 45)
+
+    def test_checkout_10h(self):
+        self.assertEqual(C.checkout('HHHHHHHHHH'), 80)
+
+    def test_checkout_15h(self):
+        self.assertEqual(C.checkout('HHHHHHHHHHHHHHH'), 125)
+
+    def test_checkout_2k(self):
+        self.assertEqual(C.checkout('KK'), 150)
+
+    def test_checkout_3n1m(self):
+        self.assertEqual(C.checkout('NNNM'), 120)
+
+    def test_checkout_5p(self):
+        self.assertEqual(C.checkout('PPPPP'), 200)
+
+
 if __name__ == '__main__':
     unittest.main()
