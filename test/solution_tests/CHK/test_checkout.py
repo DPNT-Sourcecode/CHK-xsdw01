@@ -133,6 +133,15 @@ class TestCheckoutRoundFour(unittest.TestCase):
     def test_checkout_3v(self):
         self.assertEqual(C.checkout('VVV'), 130)
 
+    def test_checkout_rq_deals(self):
+        """ R and Q deals at risk of clashing
+
+            'QQQRRR' - which deal is better?
+            'QQQ'=80, 'RRR'=150 -> 230
+            'QQ'=60, 'QRRR'=150 -> 210
+            Second deal should be prioritised """
+        self.assertEqual(C.checkout('QQQRRR'), 210)
+
 
 if __name__ == '__main__':
     unittest.main()
