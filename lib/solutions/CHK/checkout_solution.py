@@ -21,4 +21,7 @@ def checkout(skus):
               'd': 0}
 
     for sku in skus:
-        if sku == 
+        if sku in basket:
+            basket[sku] += 1
+        else:
+            return -1
