@@ -17,6 +17,7 @@ def checkout(skus):
         b_deals = 0
         e_deals = 0
         multi_a_deals = 0
+        f_deals = 0
 
         if basket['A'] < 5:
             a_deals = basket['A'] / 3
