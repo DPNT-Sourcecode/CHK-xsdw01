@@ -21,4 +21,4 @@ def checkout(skus):
               'd': 0}
 
     for sku in skus:
-        if sku ==
+        if sku == 
