@@ -55,6 +55,9 @@ def checkout(skus):
         deals['2E'], rem['E'], rem['B'] = _bogof(rem['E'], rem['B'], 2)
         deals['2B'], rem['B'] = _multibuy(rem['B'], 2)
         deals['3F'], rem["F"] = _multibuy(rem['F'], 2+1)
+        deals['5H'], deals['10H'], rem['H'] = \
+            _double_multibuy(rem['H'], 5, 10)
+        deals['2K'], rem['K'] = _multibuy(rem['K'], 2)
 
         # if basket['A'] < 5:
         #     a_deals = basket['A'] / 3
