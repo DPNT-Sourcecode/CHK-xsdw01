@@ -66,12 +66,16 @@ def checkout(skus):
     if not isinstance(skus, basestring):
         return -1
 
-    basket = {'A': 0,
-              'B': 0,
-              'C': 0,
-              'D': 0,
-              'E': 0,
-              'F': 0}  # Currently case sensitive...
+    basket = dict()
+    import string
+    for letter in string.ascii_uppercase:
+        basket[letter] = 0
+    # basket = {'A': 0,
+    #           'B': 0,
+    #           'C': 0,
+    #           'D': 0,
+    #           'E': 0,
+    #           'F': 0}  # Currently case sensitive...
 
     for sku in skus:
         if sku in basket:
